@@ -1,0 +1,185 @@
+/* Стили отдельных страниц. */
+
+/* ---------- Афиша недели ---------- */
+.featured { display: grid; gap: 2rem; padding-block: 2.5rem 1rem; }
+@media (min-width: 900px) { .featured { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; } }
+.featured__list ol { border-top: 2px solid var(--ink); }
+.featured__tab {
+    width: 100%; text-align: left; background: none; border: 0; border-bottom: 2px solid var(--ink);
+    padding: 1rem 0 1rem .25rem; display: grid; grid-template-columns: 3rem 1fr; column-gap: .5rem; align-items: baseline;
+    transition: padding .25s var(--ease), box-shadow .25s var(--ease), background-color .2s;
+}
+.featured__tab:hover { background: var(--paper-2); }
+.featured__tab[aria-selected="true"] { padding-left: 1rem; box-shadow: inset 6px 0 0 var(--red); }
+.featured__num { grid-row: span 2; font: 600 .85rem var(--font-mono); color: var(--muted); }
+.featured__name { font: 700 clamp(1.3rem, 2.6vw, 1.9rem)/1.15 var(--font-display); }
+.featured__tab[aria-selected="true"] .featured__name { color: var(--red-deep); }
+.featured__sub { font: 500 .75rem var(--font-mono); color: var(--muted); }
+.featured__stage { border: var(--stroke); background: var(--paper-2); box-shadow: var(--shadow-hard); padding: 1.5rem; }
+.featured__panel { display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .featured__panel { grid-template-columns: 200px minmax(0, 1fr); } }
+.featured__panel.is-active { animation: curtain .6s var(--ease); }
+@keyframes curtain { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.featured__poster { display: block; text-decoration: none; }
+.featured__body { display: grid; gap: .9rem; align-content: start; }
+.featured__body .display { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+.featured__text { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; max-width: 52ch; }
+
+/* ---------- Каталог ---------- */
+.catalog { display: grid; gap: 2rem; }
+@media (min-width: 960px) { .catalog { grid-template-columns: 260px minmax(0, 1fr); align-items: start; } }
+.filters { border: var(--stroke); background: var(--white); padding: 1.25rem; display: grid; gap: 1.1rem; }
+@media (min-width: 960px) { .filters { position: sticky; top: 7.5rem; } }
+.filters .field { margin: 0; }
+.filters__group { border: 0; padding: 0; margin: 0; display: grid; gap: .5rem; min-width: 0; }
+.catalog__results { display: grid; gap: 1rem; min-width: 0; }
+
+/* ---------- Страница фильма / сериала ---------- */
+.title-page { padding-block: 1.5rem 0; }
+.crumbs { display: flex; flex-wrap: wrap; gap: .5rem; font: 500 .78rem var(--font-mono); color: var(--muted); margin-bottom: 1.75rem; }
+.crumbs a { text-decoration: none; } .crumbs a:hover { text-decoration: underline; color: var(--ink); }
+.title-page__grid { display: grid; gap: 2rem; }
+@media (min-width: 800px) { .title-page__grid { grid-template-columns: minmax(240px, 320px) minmax(0, 1fr); gap: 3rem; align-items: start; } .title-page__poster { position: sticky; top: 8rem; } }
+.title-page__info { display: grid; gap: 1rem; align-content: start; }
+.title-page__text { max-width: 62ch; font-size: 1.05rem; }
+.score { color: var(--red-deep); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1rem; }
+.facts dt { font-weight: 600; }
+.screen { max-width: 820px; aspect-ratio: 16 / 9; border: var(--stroke); box-shadow: var(--shadow-hard); background: #000; }
+.screen iframe { width: 100%; height: 100%; border: 0; }
+.season { border: var(--stroke); margin-bottom: .9rem; background: var(--white); }
+.season summary { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: 1rem 1.25rem; cursor: pointer; font-weight: 700; list-style: none; }
+.season summary::-webkit-details-marker { display: none; }
+.season summary::before { content: "+"; font: 600 1.3rem/1 var(--font-mono); margin-right: .75rem; }
+.season[open] summary::before { content: "−"; }
+.season summary > span:first-child { margin-right: auto; }
+.season summary:hover { background: var(--paper-2); }
+.episodes li { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 1.25rem; border-top: 1px solid var(--line); }
+.episodes li:hover { background: var(--paper); }
+
+/* ---------- Личный кабинет ---------- */
+.account { padding-block: 2.5rem 0; }
+.account__head { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+.account__head .display { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: .5rem; }
+.account__avatar { width: 84px; height: 84px; background: var(--red); color: #fff; border: var(--stroke); box-shadow: var(--shadow-hard); display: grid; place-items: center; font: 900 2.4rem var(--font-display); }
+
+.tabs__tab { background: none; border: var(--stroke); border-bottom: 0; padding: .7rem 1.1rem; font-weight: 600; white-space: nowrap; margin-bottom: -2px; }
+.tabs__tab:hover { background: var(--paper-2); }
+.tabs__tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.tabs__count { font: 500 .72rem var(--font-mono); margin-left: .35rem; opacity: .75; }
+.tabs__panel { margin-bottom: 3rem; }
+.tabs__panel .section-title { margin-bottom: 1rem; }
+.js .tabs__panel { animation: drop .3s var(--ease); }
+.list li { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.list li > time:last-child { margin-left: auto; }
+.list__end { margin-left: auto; }
+.list a { font-weight: 600; }
+
+.tabs {
+    display: flex; gap: .3rem; border-bottom: var(--stroke);
+    overflow-x: auto; margin-bottom: 2rem;
+    scrollbar-width: none; -ms-overflow-style: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs__tab { padding: .6rem .95rem; font-size: .92rem; }
+@media (max-width: 640px) { .tabs__tab { padding: .5rem .7rem; font-size: .85rem; } }
+
+/* ---------- Тарифы ---------- */
+.tickets { display: grid; gap: 2rem; margin-top: 1rem; }
+@media (min-width: 800px) { .tickets { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; } }
+.ticket { position: relative; display: flex; flex-direction: column; background: var(--white); border: var(--stroke); padding: 2.25rem 1.5rem 1.5rem; overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.ticket:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--ink); }
+.ticket--hot { background: var(--ink); color: var(--paper); }
+.ticket__flag { position: absolute; top: 0; left: 1.5rem; background: var(--gold); color: var(--ink); font: 600 .68rem/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; padding: .45rem .7rem; }
+.ticket__name { font: 700 1.5rem/1.1 var(--font-display); }
+.ticket__price { font: 900 2.6rem/1.1 var(--font-display); margin-block: .5rem 1rem; }
+.ticket__price small { font: 500 .9rem var(--font-mono); opacity: .7; }
+.ticket__perks { display: grid; gap: .5rem; flex: 1; }
+.ticket__perks li { padding-left: 1.5rem; position: relative; }
+.ticket__perks li::before { content: ""; position: absolute; left: 0; top: .45em; width: .8rem; height: .45rem; border-left: 2px solid var(--red); border-bottom: 2px solid var(--red); transform: rotate(-45deg); }
+.ticket--hot .ticket__perks li::before { border-color: var(--gold); }
+.ticket__cut { position: relative; border-top: 2px dashed currentColor; margin: 1.5rem -1.5rem; }
+.ticket__cut::before, .ticket__cut::after { content: ""; position: absolute; top: -13px; width: 24px; height: 24px; border-radius: 50%; background: var(--paper); border: var(--stroke); }
+.ticket__cut::before { left: -13px; } .ticket__cut::after { right: -13px; }
+.dialog { border: var(--stroke); background: var(--paper); box-shadow: var(--shadow-hard); padding: 2rem; width: min(92vw, 420px); color: var(--ink); }
+.dialog::backdrop { background: rgba(26, 23, 19, .6); }
+.dialog[open] { animation: drop .25s var(--ease); }
+.dialog form { display: grid; gap: .8rem; }
+.dialog__title { font: 700 1.6rem/1.1 var(--font-display); }
+.dialog__sum { font: 900 2.2rem/1 var(--font-display); }
+
+/* ---------- Вход и регистрация ---------- */
+.auth { display: grid; gap: 2.5rem; padding-block: 3rem 0; max-width: 1000px; }
+@media (min-width: 860px) { .auth { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: stretch; } }
+.auth__art { display: none; position: relative; border: var(--stroke); box-shadow: var(--shadow-hard); overflow: hidden; min-height: 420px; }
+@media (min-width: 860px) { .auth__art { display: block; } }
+.auth__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.auth__slogan { position: absolute; left: 0; right: 0; bottom: 0; background: var(--paper); border-top: var(--stroke); padding: 1rem 1.25rem; font: italic 700 1.4rem/1.2 var(--font-display); }
+.auth__form { display: grid; align-content: start; }
+.auth__form .display { margin-bottom: 1.5rem; }
+.auth__pair { display: grid; gap: 0 1.25rem; }
+@media (min-width: 520px) { .auth__pair { grid-template-columns: 1fr 1fr; } }
+.auth__alt { margin-top: 1.25rem; color: var(--muted); }
+.auth__alt a { color: var(--ink); font-weight: 600; }
+
+.ticket__upgrade {
+    margin: 0 0 1rem;
+    padding: .5rem .75rem;
+    border: 2px dashed currentColor;
+    font-size: .9rem;
+}
+
+/* ---------- Оплата (checkout) ---------- */
+.checkout { padding-block: 2.5rem 0; max-width: 720px; margin-inline: auto; }
+.checkout__summary {
+    border: var(--stroke); background: var(--white); padding: 1.5rem;
+    margin-bottom: 1.5rem; display: grid; gap: .5rem;
+}
+.checkout__amount { font: 900 2.4rem/1 var(--font-display); }
+
+.methods { display: grid; gap: .75rem; }
+@media (min-width: 640px) { .methods { grid-template-columns: repeat(3, 1fr); } }
+.method {
+    position: relative; display: grid; gap: .35rem; padding: 1rem;
+    border: var(--stroke); background: var(--white); cursor: pointer;
+    transition: background-color .15s, color .15s, box-shadow .15s;
+}
+.method input { position: absolute; opacity: 0; pointer-events: none; }
+.method:has(input:checked) { background: var(--ink); color: var(--paper); box-shadow: var(--shadow-hard); }
+.method:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
+.method__icon { font-size: 1.6rem; }
+.method__name { font-weight: 700; }
+.method__hint { font: 500 .75rem var(--font-mono); opacity: .7; }
+
+.pay-fields {
+    display: grid; gap: 1rem; padding: 1.25rem; margin-bottom: 1.5rem;
+    border: var(--stroke); background: var(--white);
+}
+.pay-fields[hidden] { display: none; }
+.pay-fields__row { display: grid; gap: 1rem; }
+@media (min-width: 520px) { .pay-fields__row { grid-template-columns: 1fr 1fr; } }
+.pay-fields__note {
+    padding: .85rem 1rem; background: var(--paper-2);
+    border: 2px dashed var(--ink-2); font-size: .92rem;
+}
+
+/* ---------- Персона ---------- */
+.person-page { padding-block: 1rem 0; }
+.person-hero {
+    display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;
+    padding-block: 2rem 1.5rem; border-bottom: var(--stroke); margin-bottom: 1.5rem;
+}
+.person-hero__avatar {
+    width: 120px; height: 120px; background: var(--red); color: #fff;
+    display: grid; place-items: center;
+    font: 900 3rem var(--font-display);
+    border: var(--stroke); box-shadow: var(--shadow-hard);
+}
+.person-hero__name { font: 900 clamp(1.8rem, 4vw, 2.6rem)/1.05 var(--font-display); }
+.person-hero__meta { font: 500 .8rem var(--font-mono); color: var(--muted); }
+
+/* ---------- Каталог (Фильмы / Сериалы) ---------- */
+.catalog-page { padding-block: 2rem 0; }
+
+/* ---------- Настройки (форма) ---------- */
+.settings-form { max-width: 640px; display: grid; gap: .5rem; }

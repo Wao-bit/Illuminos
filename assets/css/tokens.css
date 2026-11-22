@@ -1,0 +1,24 @@
+/* Дизайн-токены Illuminos v2: светлая «бумажная» тема в духе киноафиши. */
+:root {
+    --paper:   #F3EEE3;   /* фон страницы */
+    --paper-2: #E9E1D0;   /* приподнятые блоки */
+    --white:   #FFFDF8;   /* карточки и поля */
+    --ink:     #1A1713;   /* основной текст и контуры */
+    --ink-2:   #4A433A;
+    --muted:   #6A6154;   /* вторичный текст (контраст на фоне ≥ 4.5:1) */
+    --line:    #CFC5B0;
+
+    --red:      #D9432B;  /* акцент для графики */
+    --red-deep: #B8321D;  /* акцент для текста и кнопок */
+    --teal:     #0F5C58;  /* фокус и «успех» */
+    --gold:     #F2C94C;
+
+    --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
+    --font-body:    "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+    --container: 1200px;
+    --stroke: 2px solid var(--ink);
+    --shadow-hard: 5px 5px 0 var(--ink);
+    --ease: cubic-bezier(.2, .7, .2, 1);
+}
